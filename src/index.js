@@ -11,7 +11,7 @@ fs.readFile(link, 'utf-8', (erro, texto) => {//inicia a função readFile, nativ
         if (erro) throw erro
         contaPalavra(texto);
     } catch (erro) {
-        trataErros(erro);
+        console.log(trataErros(erro));
     }
 })
 
