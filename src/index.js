@@ -1,21 +1,4 @@
-
-const fs = require('fs');//faz a importação da bibliotaca FileSistem
-const trataErros = require('./erros/funcoesErros');
-
-
-const caminhoArquivo = process.argv;// modulo que permite que o node receba parametros em um array no teminal
-const link = caminhoArquivo[2];// recebe o parametro passado no teminal no indice 2
-
-fs.readFile(link, 'utf-8', (erro, texto) => {//inicia a função readFile, nativa da biblioteca FS, que faz a leitura do arquivo. Por ser um arquivo de texto é necessario utiliza o parametro UTF-8 que padroniza os caracteres.
-    try {
-        if (erro) throw erro
-        contaPalavra(texto);
-    } catch (erro) {
-        console.log(trataErros(erro));
-    }
-})
-
-function contaPalavra(texto){
+export function contaPalavra(texto){
     const paragrafos = extraiParagrafo(texto);
     const contagem = paragrafos.flatMap((paragrafo) => {
         if(!paragrafo)return [];
